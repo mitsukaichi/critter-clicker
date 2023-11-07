@@ -51,7 +51,7 @@ router.get('/petpic/:id', withAuth, async (req, res) => {
                 },
                 {
                     model: Comments,
-                    include: [User],
+                    include: [Users],
                 },
                 {
                     model: Categories,
@@ -86,7 +86,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
             include: [
                 {
                     model: Posts,
-                    include: [User],
+                    include: [Users],
                 },
                 {
                     model: Comments,
@@ -127,3 +127,30 @@ router.get('/create', async (req, res) => {
         res.status(500).json(error);
     }
 });
+
+// GET ROUTE to retrieve a post by ID to edit page
+// most likely we won't use this route
+router.get('/create/:id', async (req, res) => {
+    try {
+        const petpicData = await Posts.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Users,
+                    attributes: ["name"],
+                },
+                {
+                    model: Comments,
+                    include: [Users],
+                },
+                {
+                    model: Categories,
+                    attributes: ["category"],
+                },
+            ],
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    }
+});
+
