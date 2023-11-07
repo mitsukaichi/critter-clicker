@@ -154,3 +154,14 @@ router.get('/create/:id', async (req, res) => {
     }
 });
 
+// ROUTE to login page
+router.all('/login', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/dashboard');
+        return;
+    }
+
+    res.render('login');
+});
+
+module.exports = router;
