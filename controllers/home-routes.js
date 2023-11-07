@@ -108,4 +108,22 @@ router.get('/dashboard', withAuth, async (req, res) => {
         console.log(error);
         res.status(500).json(error);
     }
-})
+});
+
+// GET ROUTE to retrieve new post creation page
+router.get('/create', async (req, res) => {
+    try {
+        if (req.session.logged_in) {
+            res.render('create', {
+                logged_in: req.session.logged_in,
+                userId: req.session.user_id,
+            });
+            return;
+        } else {
+            res.redirect('/login');
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    }
+});
