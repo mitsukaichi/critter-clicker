@@ -1,0 +1,26 @@
+/* :root {
+
+  }
+  
+  body {
+
+  } */
+
+
+.logo {
+    margin: 10px;
+}
+
+#signup-button{
+    margin-top: 20px;
+    margin-left: 150px;
+}
+
+#login-button{
+    margin-top: 20px;
+    margin-left: 150px;
+}
+
+.card{
+    margin: 30px;
+}
