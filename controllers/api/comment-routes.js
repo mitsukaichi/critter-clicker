@@ -17,4 +17,26 @@ router.post('/', async (req, res) => {
         console.log(error);
         res.status(500).json(error);
     }
+});
+
+// GET ROUTE to load all comments on post
+router.get('/', async (req, res) => {
+    try {
+        const commentData = await Comments.findAll({
+            include: [
+                {
+                    model: Users,
+                    attributes: ["username"],
+                },
+                {
+                    model: Posts,
+                    attribute: ["id"],
+                },
+            ],
+        });
+        res.status(200).json(commentData);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    }
 })
