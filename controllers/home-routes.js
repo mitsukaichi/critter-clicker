@@ -1,6 +1,6 @@
 // IMPORTS
 const router = require('express').Router();
-const { Users, Posts, Index, Comments, Categories } = require('../models'); // may need to update based off models
+const { Users, Posts, Index, Comments, Categories, Likes } = require('../models'); // may need to update based off models
 const withAuth = require('../utils/auth'); // may need to update based off utils
 
 // GET ROUTE all petpic posts
@@ -15,6 +15,10 @@ router.get('/', async (req, res) => {
                 {
                     model: Comments,
                     attributes: ["comment"],
+                },
+                {
+                    model: Categories,
+                    attributes: ["category"],
                 },
                 {
                     model: Likes,
@@ -50,6 +54,10 @@ router.get('/petpic/:id', withAuth, async (req, res) => {
                     include: [User],
                 },
                 {
+                    model: Categories,
+                    attributes: ["category"],
+                },
+                {
                     model: Likes,
                     attributes: ["like"],
                 },
@@ -69,3 +77,35 @@ router.get('/petpic/:id', withAuth, async (req, res) => {
         res.redirect('/login');
     }
 });
+
+// GET ROUTE to navigate to dashboard
+router.get('/dashboard', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ["password"] },
+            include: [
+                {
+                    model: Posts,
+                    include: [User],
+                },
+                {
+                    model: Comments,
+                },
+                {
+                    model: Likes,
+                },
+            ],
+        });
+
+        const user = userData.get({ plain: true });
+        console.log(user);
+
+        res.render('dashboard', {
+            ...user,
+            logged_in: true,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    }
+})
