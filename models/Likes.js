@@ -11,7 +11,7 @@ Likes.init(
             primaryKey: true,
             autoIncrement: true
         },
-        user_id: {
+        users_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'users',
