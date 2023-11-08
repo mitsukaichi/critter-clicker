@@ -10,7 +10,7 @@ router.post('/', withAuth, async (req, res) => {
     try {
         const newPetPic = await Posts.create({
             ...req.body,
-            user_id: req.session.user_id,
+            users_id: req.session.users_id,
         });
 
         res.status(200).json(newPetPic);
