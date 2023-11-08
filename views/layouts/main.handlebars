@@ -27,8 +27,8 @@
                     <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    {{#if loggedIn}}
-                        <button class="btn btn-sm btn-outline-secondary" type="button">Log out</button>
+                    {{#if logged_in}}
+                        <button class="btn btn-sm btn-outline-secondary" type="button" id="logout-button">Log out</button>
                     {{else}}
                         <a class="nav-item nav-link" href="/dashboard">Log in</a>
                     {{/if}}
@@ -51,7 +51,7 @@
     </div>
 
     </main>
-    {{#if loggedIn}}
+    {{#if logged_in}}
         <script src="/js/logout.js"></script>
     {{/if}}
 
