@@ -2,18 +2,21 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Critter Clicker</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="../public/css/jass.css">
-  <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critter Clicker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/jass.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">
-            <img src="../public/image/logo.jpeg" width="80" height="80" class="d-inline-block align-top logo" alt="critter clicker logo">
+            <img src="/image/logo.jpeg" width="80" height="80" class="d-inline-block align-top logo" alt="critter clicker logo">
         </a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
@@ -36,10 +39,22 @@
 </header>
 
 <body>
-  <main>
+    <main>
     {{{body}}}
-  </main>
-  <script src="/js/logout.js"></script>
+    
+<!-- Modal -->
+    <div class="hidden custom-logout-modal d-flex justify-content-around">
+        <div class = "card custom-modal-body" style="width: 25rem; height: 7rem;">
+            <div class="card-body alert-content"></div>
+            <button type="button" class="btn btn-outline-secondary" id="dismiss-modal">CLOSE</button>
+        </div>
+    </div>
+
+    </main>
+    {{#if loggedIn}}
+        <script src="/js/logout.js"></script>
+    {{/if}}
+
 </body>
 
 </html>
