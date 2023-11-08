@@ -2,7 +2,8 @@ const Comments = require('./Comments');
 const Users = require('./Users');
 const Categories = require('./Categories');
 const Posts = require('./Posts');
-const Likes = require('./Likes')
+const Likes = require('./Likes');
+const PostCategories = require('./PostCategories');
 
 Comments.belongsTo(Users, {
     foreignKey: 'user_id'
@@ -25,23 +26,29 @@ Posts.belongsTo(Users, {
 });
 
 Posts.hasMany(Comments, {
-    foreignKey: 'post_id'
+    foreignKey: 'posts_id'
 });
 
 Posts.hasMany(Likes, {
-    foreignKey: 'post_id'
+    foreignKey: 'posts_id'
 });
 
 Posts.hasMany(Categories, {
-    foreignKey: 'post_id'
+    foreignKey: 'posts_id'
 });
 
 Categories.belongsToMany(Posts, {
-    foreignKey: 'post_id'
+    through: PostCategories,
+    foreignKey: 'categories_id'
+});
+
+Posts.belongsToMany(Categories, {
+    through: PostCategories,
+    foreignKey: 'posts_id'
 });
 
 Likes.belongsTo(Posts, {
-    foreignKey: 'post_id'
+    foreignKey: 'posts_id'
 });
 
 Likes.belongsTo(Users, {
