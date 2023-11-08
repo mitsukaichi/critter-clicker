@@ -34,6 +34,8 @@
     {{/each}}
 </div>
 
-
-
-<script src="/js/like.js"></script>
+{{#if logged_in }}
+    <script src="/js/like-signin.js"></script>
+{{else}}
+    <script src="/js/like-nosignin.js"></script>
+{{/if}}

@@ -32,12 +32,7 @@ const likeHandler = async (event) => {
         }
   };
 
-  const likeWithoutSigininHandler = async (event) => {
-    event.preventDefault();
-    document.querySelector('.alert-content').textContent = "Sign in to like the posts";
-    document.querySelector('.custom-login-modal').classList.remove("hidden");
-  };
+
 
 document.querySelector('.like-button').addEventListener('click',likeHandler);
 document.querySelector('.unlike-button').addEventListener('click',unlikeHandler);
-document.querySelector('.like-no-signin').addEventListener('click',likeWithoutSigininHandler);
