@@ -1,4 +1,4 @@
-{{#each posts as |post|}}
+{{#each petpicPosts as |post|}}
 
 <div class="d-flex flex-wrap">
     <a href="/petpic/{{id}}">
@@ -27,7 +27,7 @@
                 <p class="like-count">{{like_count}}</p>
             </div>
             <div class="post-metadata p-2">
-                <p>Posted by {{username}} Posted on {{format_date creation_date}}</p>
+                <p>Posted by {{user.username}} Posted on {{format_date createdAt}}</p>
             </div>
             </div>
         </div>
