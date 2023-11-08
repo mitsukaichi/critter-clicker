@@ -4,4 +4,4 @@ const likeWithoutSigininHandler = async (event) => {
     document.querySelector('.custom-login-modal').classList.remove("hidden");
   };
 
-  document.querySelector('.like-no-signin').addEventListener('click',likeWithoutSigininHandler);
+  document.querySelector('.custom-logout-modal').addEventListener('click',likeWithoutSigininHandler);
