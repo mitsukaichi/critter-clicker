@@ -1,4 +1,4 @@
-const likeWithoutSigininHandler = async (event) => {
+const likeWithoutSigininHandler = (event) => {
     event.preventDefault();
     document.querySelector('.alert-content').textContent = "Sign in to like the posts";
     document.querySelector('.custom-logout-modal').classList.remove("hidden");
