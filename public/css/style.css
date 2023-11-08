@@ -1,14 +1,13 @@
 /* :root {
-
-  }
+} */
   
-  body {
-
-  } */
+body {
+    font-family: 'Montserrat', sans-serif;;
+} 
 
 
 .logo {
-    margin: 10px;
+    margin-left: 30px;
 }
 
 .hidden {
@@ -21,12 +20,12 @@
 
 #signup-button{
     margin-top: 20px;
-    margin-left: 150px;
+    margin-left: 35%;
 }
 
 #login-button{
     margin-top: 20px;
-    margin-left: 150px;
+    margin-left: 35%;
 }
 
 .card{
