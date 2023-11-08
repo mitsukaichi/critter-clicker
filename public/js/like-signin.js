@@ -28,7 +28,7 @@ const likeHandler = async (event) => {
             document.location.replace('/');
         } else {
             document.querySelector('.alert-content').textContent = "Something went wrong, please try again.";
-            document.querySelector('.custom-login-modal').classList.remove("hidden");
+            document.querySelector('.custom-logout-modal').classList.remove("hidden");
         }
   };
 
