@@ -1,9 +1,9 @@
-{{#each petpicPosts as |post|}}
-
 <div class="d-flex flex-wrap">
-    <a href="/petpic/{{id}}">
+    {{#each petpicPosts as |post|}}
         <div class="card" id="{{id}}" style="width: 25rem;">
-            <img class="card-img-top" src="{{image}}">
+            <a href="/petpic/{{id}}"></a>
+                <img class="card-img-top" src="{{image}}">
+            </a>
             <div class="card-body d-flex">
             <div class="like-section d-flex p-2 flex-grow-1">
                 {{#if logged_in }}
@@ -31,9 +31,9 @@
             </div>
             </div>
         </div>
-    </a>
+    {{/each}}
 </div>
 
-{{/each}}
+
 
 <script src="/js/like.js"></script>
