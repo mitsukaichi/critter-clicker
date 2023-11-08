@@ -11,5 +11,11 @@ const logout = async () => {
         document.querySelector('.custom-logout-modal').classList.remove("hidden");
     }
   };
-  
+
+const closeModal = (event) => {
+  document.querySelector('.custom-logout-modal').classList.add("hidden");
+};
+
+
   document.querySelector('#logout-button').addEventListener('click', logout);
+  document.getElementById('dismiss-modal').addEventListener('click', closeModal);
