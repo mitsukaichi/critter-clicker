@@ -1,6 +1,6 @@
 // IMPORTS
 const router = require('express').Router();
-const { Users, Posts, Comments, Categories, Likes } = require('../models/Index'); // may need to update based off models
+const { Users, Posts, Comments, Categories, Likes } = require('../models'); // may need to update based off models
 const withAuth = require('../utils/auth'); // may need to update based off utils
 
 // GET ROUTE all petpic posts
@@ -10,19 +10,19 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: Users,
-                    attributes: ["username"],
+                    attributes: ["users"],
                 },
                 {
                     model: Comments,
-                    attributes: ["comment"],
+                    attributes: ["comments"],
                 },
                 {
                     model: Categories,
-                    attributes: ["category"],
+                    attributes: ["categories"],
                 },
                 {
                     model: Likes,
-                    attributes: ["like"],
+                    attributes: ["likes"],
                 },
             ],
         });
@@ -47,7 +47,7 @@ router.get('/petpic/:id', withAuth, async (req, res) => {
             include: [
                 {
                     model: Users,
-                    attributes: ["username"],
+                    attributes: ["users"],
                 },
                 {
                     model: Comments,
@@ -55,11 +55,11 @@ router.get('/petpic/:id', withAuth, async (req, res) => {
                 },
                 {
                     model: Categories,
-                    attributes: ["category"],
+                    attributes: ["categories"],
                 },
                 {
                     model: Likes,
-                    attributes: ["like"],
+                    attributes: ["likes"],
                 },
             ],
         });
@@ -81,7 +81,7 @@ router.get('/petpic/:id', withAuth, async (req, res) => {
 // GET ROUTE to navigate to dashboard
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
-        const userData = await User.findByPk(req.session.user_id, {
+        const userData = await Users.findByPk(req.session.user_id, {
             attributes: { exclude: ["password"] },
             include: [
                 {
@@ -136,7 +136,7 @@ router.get('/create/:id', async (req, res) => {
             include: [
                 {
                     model: Users,
-                    attributes: ["name"],
+                    attributes: ["users"],
                 },
                 {
                     model: Comments,
@@ -144,7 +144,7 @@ router.get('/create/:id', async (req, res) => {
                 },
                 {
                     model: Categories,
-                    attributes: ["category"],
+                    attributes: ["categories"],
                 },
             ],
         });
