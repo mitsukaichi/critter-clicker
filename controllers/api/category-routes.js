@@ -36,3 +36,6 @@ router.get('/catorgies/:id', withAuth, async (req, res) => {
         res.redirect('/login');
     }
 });
+
+// EXPORT
+module.exports = router;
