@@ -105,7 +105,7 @@ Copyright (c) 2023
 
 <hr />
 
-## About The Author
+## About The Authors
 ### Minami Mukai (Itsukaichi)
 Description
 - [GitHub](https://github.com/) - update URL
