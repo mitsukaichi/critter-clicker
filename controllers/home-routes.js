@@ -47,7 +47,7 @@ router.get('/petpic/:id', withAuth, async (req, res) => {
             include: [
                 {
                     model: Users,
-                    attributes: ["username"],
+                    attributes: ["users"],
                 },
                 {
                     model: Comments,
@@ -55,11 +55,11 @@ router.get('/petpic/:id', withAuth, async (req, res) => {
                 },
                 {
                     model: Categories,
-                    attributes: ["category"],
+                    attributes: ["categories"],
                 },
                 {
                     model: Likes,
-                    attributes: ["like"],
+                    attributes: ["likes"],
                 },
             ],
         });
@@ -136,7 +136,7 @@ router.get('/create/:id', async (req, res) => {
             include: [
                 {
                     model: Users,
-                    attributes: ["name"],
+                    attributes: ["users"],
                 },
                 {
                     model: Comments,
@@ -144,7 +144,7 @@ router.get('/create/:id', async (req, res) => {
                 },
                 {
                     model: Categories,
-                    attributes: ["category"],
+                    attributes: ["categories"],
                 },
             ],
         });
