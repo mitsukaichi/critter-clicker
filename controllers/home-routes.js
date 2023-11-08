@@ -1,6 +1,6 @@
 // IMPORTS
 const router = require('express').Router();
-const { Users, Posts, Comments, Categories, Likes } = require('../models/Index'); // may need to update based off models
+const { Users, Posts, Comments, Categories, Likes } = require('../models'); // may need to update based off models
 const withAuth = require('../utils/auth'); // may need to update based off utils
 
 // GET ROUTE all petpic posts
