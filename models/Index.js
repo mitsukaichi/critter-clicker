@@ -25,23 +25,23 @@ Posts.belongsTo(Users, {
 });
 
 Posts.hasMany(Comments, {
-    foreignKey: 'post_id'
+    foreignKey: 'posts_id'
 });
 
 Posts.hasMany(Likes, {
-    foreignKey: 'post_id'
+    foreignKey: 'posts_id'
 });
 
 Posts.hasMany(Categories, {
-    foreignKey: 'post_id'
+    foreignKey: 'posts_id'
 });
 
 Categories.belongsToMany(Posts, {
-    foreignKey: 'post_id'
+    foreignKey: 'posts_id'
 });
 
 Likes.belongsTo(Posts, {
-    foreignKey: 'post_id'
+    foreignKey: 'posts_id'
 });
 
 Likes.belongsTo(Users, {
