@@ -4,7 +4,7 @@ const likeWithoutSigininHandler = (event) => {
     document.querySelector('.custom-logout-modal').classList.remove("hidden");
   };
 
-  const closeModal = (event) => {
+const closeModal = (event) => {
     document.querySelector('.custom-logout-modal').classList.add("hidden");
   };
   
