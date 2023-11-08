@@ -15,11 +15,18 @@
     <script src="upload.js"></script> -->
     
     <script type="text/javascript">  
+    // cloudinary.config({
+    //   "cloud_name": 'dacwtore8',
+    //   'api_key': '366152969415347',
+    //   'api_secret': 'UB9eY46UHQFQuck_yLyPD2ErQoE'
+    // });
     var myWidget = cloudinary.createUploadWidget({
-      cloudName: 'my_cloud_name', 
-      uploadPreset: 'my_preset'}, (error, result) => { 
+      cloudName: 'dacwtore8', 
+      uploadPreset: 'xkitthvf'}, (error, result) => { 
         if (!error && result && result.event === "success") { 
           console.log('Done! Here is the image info: ', result.info); 
+          console.log(result);
+          console.log(result.url);
         }
       }
     )
