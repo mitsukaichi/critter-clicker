@@ -81,7 +81,7 @@ router.get('/petpic/:id', withAuth, async (req, res) => {
 // GET ROUTE to navigate to dashboard
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
-        const userData = await User.findByPk(req.session.user_id, {
+        const userData = await Users.findByPk(req.session.user_id, {
             attributes: { exclude: ["password"] },
             include: [
                 {
