@@ -3,7 +3,7 @@
         <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/RedCat_8727.jpg/1600px-RedCat_8727.jpg">
         <div class="card-body d-flex">
             <div class="like-section d-flex p-2 flex-grow-1 ">
-                {{#if loggedIn }}
+                {{#if logged_in }}
                     {{!-- If logged in and liked, render the button with color filled and trigger the unlike action upon click--}}
                     {{#if isLiked}}
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-hand-thumbs-up-fill unlike-button" viewBox="0 0 16 16">
@@ -42,7 +42,7 @@
             </div>
         </div>
         {{/each}}
-        {{#if loggedIn }}
+        {{#if logged_in }}
         <div class="add-comment">
             <form>
                 <div class="form-group add-comment">
