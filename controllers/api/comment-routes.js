@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
         const comment = await Comments.create({
             comment_text: req.body.comment_text,
             posts_id: req.body.posts_id,
-            user_id: req.session.user_id || req.body.user_id,
+            users_id: req.session.users_id || req.body.users_id,
         });
         res.status(200).json(comment);
     } catch (error) {
