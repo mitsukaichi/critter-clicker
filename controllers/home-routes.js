@@ -10,19 +10,19 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: Users,
-                    attributes: ["users"],
+                    // attributes: ["username"],
                 },
                 {
                     model: Comments,
-                    attributes: ["comments"],
+                    // attributes: ["comments"],
                 },
                 {
                     model: Categories,
-                    attributes: ["categories"],
+                    // attributes: ["categories"],
                 },
                 {
                     model: Likes,
-                    attributes: ["likes"],
+                    // attributes: ["likes"],
                 },
             ],
         });
@@ -47,19 +47,19 @@ router.get('/petpic/:id', withAuth, async (req, res) => {
             include: [
                 {
                     model: Users,
-                    attributes: ["users"],
+                    // attributes: ["users"],
                 },
                 {
                     model: Comments,
-                    include: [Users],
+                    // include: [Users],
                 },
                 {
                     model: Categories,
-                    attributes: ["categories"],
+                    // attributes: ["categories"],
                 },
                 {
                     model: Likes,
-                    attributes: ["likes"],
+                    // attributes: ["likes"],
                 },
             ],
         });
@@ -81,7 +81,7 @@ router.get('/petpic/:id', withAuth, async (req, res) => {
 // GET ROUTE to navigate to dashboard
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
-        const userData = await Users.findByPk(req.session.user_id, {
+        const userData = await Users.findByPk(req.session.users_id, {
             attributes: { exclude: ["password"] },
             include: [
                 {
@@ -97,6 +97,11 @@ router.get('/dashboard', withAuth, async (req, res) => {
             ],
         });
 
+        if(!userData) {
+            res.status(404).json({ message: "No user found with that ID"});
+            return;
+        }
+    
         const user = userData.get({ plain: true });
         console.log(user);
 
@@ -136,7 +141,7 @@ router.get('/create/:id', async (req, res) => {
             include: [
                 {
                     model: Users,
-                    attributes: ["users"],
+                    // attributes: ["users"],
                 },
                 {
                     model: Comments,
@@ -144,7 +149,7 @@ router.get('/create/:id', async (req, res) => {
                 },
                 {
                     model: Categories,
-                    attributes: ["categories"],
+                    // attributes: ["categories"],
                 },
             ],
         });
