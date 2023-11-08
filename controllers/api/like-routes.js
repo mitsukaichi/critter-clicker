@@ -15,11 +15,11 @@ router.get('/', withAuth, async (req, res) => {
                 },
                 {
                     model: Users,
-                    attribute: ["username"],
+                    attribute: ["users"],
                 },
                 {
                     model: Categories,
-                    attribute: ["name"],
+                    attribute: ["title"],
                 },
             ],
         });

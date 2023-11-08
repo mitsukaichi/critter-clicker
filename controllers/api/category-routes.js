@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
                 },
                 {
                     model: Users,
-                    attribute: ["username"],
+                    attribute: ["users"],
                 },
                 {
                     model: Likes,
@@ -47,7 +47,7 @@ router.get('/catorgies/:id', withAuth, async (req, res) => {
                 },
                 {
                     model: Users,
-                    attribute: ["username"],
+                    attribute: ["users"],
                 },
                 {
                     model: Likes,
