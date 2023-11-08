@@ -37,3 +37,4 @@ Likes.init(
         modelName: 'likes'
     }
 )
+module.exports = Likes;
