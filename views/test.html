@@ -44,12 +44,12 @@
 
         
 <!-- Page content starts here -->
-<div class="d-flex justify-content-around">
+<div class="d-flex justify-center">
     <div class="card" style="width: 25rem;">
         <div class="card-header">
             Add new post
         </div>
-        <form>
+        <form class="d-flex flex-column">
             <div class="form-group">
                 <label for="upload-file">Selet file to upload</label>
                 <input type="file" class="form-control" id="upload-file">
@@ -61,11 +61,10 @@
                     <option value="{{name}}">{{name}}</option>
                   </select>
             </div>
-            <button type="button" class="btn btn-outline-primary" id="signup-button">UPLOAD</button>
+            <button type="button" class="btn btn-outline-primary" id="submit-new-post">UPLOAD</button>
         </form>
     </div>
 </div>
-
 <!-- Modal -->
 <div class="hidden custom-login-modal d-flex justify-content-around">
     <div class = "card custom-modal-body" style="width: 25rem; height: 7rem;">
