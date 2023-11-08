@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
- 
-class Posts extends Model {}
 
-Posts.init(
+class Likes extends Model {}
+
+Likes.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,32 +11,29 @@ Posts.init(
             primaryKey: true,
             autoIncrement: true
         },
-        title: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        post_text: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id'
             }
+        },
+        post_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'post',
+                key: 'id'
+            }
+        },
+        liked: {
+            type: DataTypes.BOOLEAN,
         }
     },
     {
         sequelize,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'posts'
+        modelName: 'likes'
     }
 )
-
-
-module.exports = Posts;
