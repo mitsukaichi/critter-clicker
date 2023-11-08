@@ -44,7 +44,7 @@ router.post('/:id', withAuth, async (req, res) => {
     try {
         const newLike = await Likes.create({
             ...req.body,
-            user_id: req.session.user_id,
+            users_id: req.session.users_id,
         });
 
         req.status(200).json(newLike);
