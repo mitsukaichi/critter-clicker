@@ -44,12 +44,47 @@
 
         
 <!-- Page content starts here -->
+<<<<<<< HEAD
+<div class="d-flex justify-center">
+    <div class="card" style="width: 25rem;">
+        <div class="card-header">
+            Add new post
+        </div>
+        <form class="d-flex flex-column">
+            <div class="form-group">
+                <label for="upload-file">Selet file to upload</label>
+                <input type="file" class="form-control" id="upload-file">
+            </div>
+            <div class="form-group">
+                <select class="form-select">
+                    <option selected>Select the category</option>
+                    {{#each categories as |category| }}
+                    <option value="{{name}}">{{name}}</option>
+                  </select>
+            </div>
+            <button type="button" class="btn btn-outline-primary" id="submit-new-post">UPLOAD</button>
+        </form>
+=======
 
+>>>>>>> 1ff7b5c08e942f5aefd56a49a1657c33777b00cb
     </div>
         <button type="button" class="btn btn-primary post-new-photo-button" id="{{id}}" >
             <a href="/create">POST A NEW PHOTO</a>
         </button>
 </div>
+<<<<<<< HEAD
+<!-- Modal -->
+<div class="hidden custom-login-modal d-flex justify-content-around">
+    <div class = "card custom-modal-body" style="width: 25rem; height: 7rem;">
+        <div class="card-body alert-content"></div>
+        <button type="button" class="btn btn-outline-secondary" id="dismiss-modal">CLOSE</button>
+    </div>
+</div>
+
+
+<script src="/js/login.js"></script>
+=======
+>>>>>>> 1ff7b5c08e942f5aefd56a49a1657c33777b00cb
 
 
 
