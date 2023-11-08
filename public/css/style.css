@@ -86,3 +86,8 @@ a:hover {
 .comment-form {
     border-color: white;
 }
+
+.post-new-photo-button {
+    margin-left: 30%;
+    margin-right: 30%;
+}
