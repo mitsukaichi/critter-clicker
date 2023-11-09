@@ -71,37 +71,73 @@ router.get('/', async (req, res) => {
 
 // GET ROUTE to an individual petpic post
 router.get('/petpic/:id', async (req, res) => {
-    try {
-        const petpicData = await Posts.findByPk(req.params.id, {
-            include: [
-                { model: Users },
-                { model: Comments,
-                    include: [
-                        { model: Users },
-                    ] },
-                { model: Categories },
-                { model: Likes },
-            ],
-            attributes: {
+    if (req.session.users_id)  {
+        try {
+            const petpicData = await Posts.findByPk(req.params.id, {
                 include: [
-                    [
-                        sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
-                        'likedCount'
+                    { model: Users },
+                    { model: Comments,
+                        include: [
+                            { model: Users },
+                        ] },
+                    { model: Categories },
+                    { model: Likes },
+                ],
+                attributes: {
+                    include: [
+                        [
+                            sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
+                            'likedCount'
+                        ],
+                        [
+                            sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE users_id = ${req.session.users_id} AND liked = true AND likes.posts_id = posts.id)`),
+                            'isLiked'
+                        ]
                     ]
-                ]
-            }
-        });
-
-        const petpicPost = petpicData.get({ plain: true });
-        res.render('petpic', {
-            ...petpicPost,
-            logged_in: req.session.logged_in,
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json(error);
-        res.redirect('/login');
-    }
+                }
+            });
+            const petpicPost = petpicData.get({ plain: true });
+            res.render('petpic', {
+                ...petpicPost,
+                logged_in: req.session.logged_in,
+            });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json(error);
+            res.redirect('/login');
+        }
+    } else {
+        try {
+            const petpicData = await Posts.findByPk(req.params.id, {
+                include: [
+                    { model: Users },
+                    { model: Comments,
+                        include: [
+                            { model: Users },
+                        ] },
+                    { model: Categories },
+                    { model: Likes },
+                ],
+                attributes: {
+                    include: [
+                        [
+                            sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
+                            'likedCount'
+                        ]
+                    ]
+                }
+            });
+            const petpicPost = petpicData.get({ plain: true });
+            res.render('petpic', {
+                ...petpicPost,
+                logged_in: req.session.logged_in,
+            });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json(error);
+            res.redirect('/login');
+        }
+    }    
 });
 
 // GET ROUTE to navigate to dashboard
