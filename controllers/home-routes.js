@@ -29,6 +29,7 @@ router.get('/', async (req, res) => {
 
         const petpicPosts = petpicData.map((petpicPost) =>
         petpicPost.get({ plain: true }));
+        console.log(petpicPosts);
 
         res.render('homepage', {
             petpicPosts,
