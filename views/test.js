@@ -27,13 +27,14 @@ var myWidget = cloudinary.createUploadWidget(
   (error, result) => {
     if (!error && result && result.event === "success") {
       console.log("Done! Here is the image info: ", result.info);
-      document.getElementById("uploadedimage").setAttribute("src", result.info.secure_url);
-      document.getElementById("uploadedimage").setAttribute("src", result.url);
+      console.log(result);
+    //   document.getElementById("uploadedimage").setAttribute("src", result.info.secure_url);
+      document.getElementById("uploadedimage").setAttribute("src", result.info.url);
     }
   }
 );
 
-document.getElementById("upload_widget").addEventListener(
+document.getElementById("test_widget").addEventListener(
   "click",
   function () {
     myWidget.open();
