@@ -9,7 +9,7 @@ const likeHandler = async (event) => {
       });
         if (response.ok) {
             // reload the page to generate the content shown for the user after logging in
-            document.location.replace('/');
+            location.reload();
         } else {
             document.querySelector('.alert-content').textContent = "Something went wrong, please try again.";
             document.querySelector('.custom-logout-modal').classList.remove("hidden");
@@ -26,7 +26,7 @@ const likeHandler = async (event) => {
       });
         if (response.ok) {
             // reload the page to generate the content shown for the user after logging in
-            document.location.replace('/');
+            location.reload();
         } else {
             document.querySelector('.alert-content').textContent = "Something went wrong, please try again.";
             document.querySelector('.custom-logout-modal').classList.remove("hidden");
