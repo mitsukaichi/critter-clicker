@@ -1,9 +1,10 @@
 const likeHandler = async (event) => {
     event.preventDefault();
     const posts_id = event.target.id;
+    const liked = true;
     const response = await fetch(`/api/likes/${posts_id}`, {
         method: 'POST',
-        body: JSON.stringify({ posts_id }),
+        body: JSON.stringify({ posts_id , liked }),
         headers: { 'Content-Type': 'application/json' },
       });
         if (response.ok) {
@@ -18,9 +19,10 @@ const likeHandler = async (event) => {
   const unlikeHandler = async (event) => {
     event.preventDefault();
     const posts_id = event.target.id;
+    const liked = false;
     const response = await fetch(`/api/likes/${posts_id}`, {
         method: 'DELETE',
-        body: JSON.stringify({ posts_id }),
+        body: JSON.stringify({ posts_id, liked }),
         headers: { 'Content-Type': 'application/json' },
       });
         if (response.ok) {
