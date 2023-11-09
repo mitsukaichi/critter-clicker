@@ -44,52 +44,26 @@
     <main>
 
         <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
-        <!-- <button id="upload_widget" class="cloudinary-button">Upload files</button> -->
-
-        <!-- <button id="upload" class="cloudinary-button">Upload files</button>
-        <script src="test.js"></script> -->
-
-        <!-- <script type="text/javascript">
-
-            var myWidget = cloudinary.createUploadWidget({
-                cloudName: 'dacwtore8',
-                uploadPreset: 'xkitthvf'
-            }, (error, result) => {
-                if (!error && result && result.event === "success") {
-                    console.log('Done! Here is the image info: ', result.info);
-                    console.log(result);
-                    console.log(result.url);
-                }
-            }
-            )
-
-            document.getElementById("upload_widget").addEventListener("click", function () {
-                myWidget.open();
-            }, false);
-        </script> -->
-
-        <!-- <button id="test_widget" class="btn btn-outline-primary cloudinary-button">Upload files</button> -->
-        
-        
-        <!-- Page content starts here -->
         <div class="d-flex justify-center">
     <div class="card" style="width: 25rem;">
         <div class="card-header">
             Add new post
         </div>
         <form class="d-flex flex-column">
-            <button type="button" id="test_widget" class="btn btn-outline-primary cloudinary-button">Upload files</button>
-            <div class="form-group">
-                <select class="form-select">
+            <div class="form-group"></div>
+                <img src="" id="uploadedimage" width="380" height="200"/> <br>
+                <button type="button" id="test_widget" class="btn btn-outline-primary cloudinary-button">Upload files</button><br>
+                <select class="form-select" id="selectedCategory">
                     <option selected>Select the category</option>
                     {{#each categories as |category| }}
                     <option value="{{name}}">{{name}}</option>
+                    <option value="{{name}}">{{name}}</option>
                     {{/each}}
-                  </select>
+                </select><br>
+                <button type="button" id="create-new-post" class="btn btn-outline-primary">Submit</button>
             </div>
-            <!-- <button type="button" class="btn btn-outline-primary cloudinary-button" id="test_widget">UPLOAD</button> -->
         </form>
-        <img src="" id="uploadedimage"/>
+        
     </div>
 </div>
 
