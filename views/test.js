@@ -30,6 +30,7 @@ var myWidget = cloudinary.createUploadWidget(
       console.log(result);
     //   document.getElementById("uploadedimage").setAttribute("src", result.info.secure_url);
       document.getElementById("uploadedimage").setAttribute("src", result.info.url);
+      
     }
   }
 );
