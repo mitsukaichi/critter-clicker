@@ -5,33 +5,67 @@ const withAuth = require('../utils/auth'); // may need to update based off utils
 const sequelize = require('../config/connection');
 
 // GET ROUTE all petpic posts
-router.get('/', async (req, res) => {
-    try {
-        const petpicData = await Posts.findAll({
-            include: [
-                { model: Users },
-                { model: Comments },
-                { model: Categories },
-                { model: Likes },
-            ],
-            attributes: {
-                include: [[
-                sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
-                'likedCount'
-            ]]
-            }
-        });
 
-        const petpicPosts = petpicData.map((petpicPost) =>
-        petpicPost.get({ plain: true }));
-        console.log(petpicData);
-        res.render('homepage', {
-            petpicPosts,
-            logged_in: req.session.logged_in,
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json(error);
+router.get('/', async (req, res) => {
+    if (req.session.users_id)  {
+        try {
+            const petpicData = await Posts.findAll({
+                include: [
+                    { model: Users },
+                    { model: Comments },
+                    { model: Categories },
+                    { model: Likes },
+                ],
+                attributes: {
+                    include: [
+                        [
+                            sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
+                            'likedCount'
+                        ],
+                        [
+                            sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE users_id = ${req.session.users_id} AND liked = true AND likes.posts_id = posts.id)`),
+                            'isLiked'
+                        ]
+                    ]
+                }
+            });
+            const petpicPosts = petpicData.map((petpicPost) =>
+            petpicPost.get({ plain: true }));
+            res.render('homepage', {
+                petpicPosts,
+                logged_in: req.session.logged_in,
+            });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json(error);
+        }
+    } else {
+        try {
+            const petpicData = await Posts.findAll({
+                include: [
+                    { model: Users },
+                    { model: Comments },
+                    { model: Categories },
+                    { model: Likes },
+                ],
+                attributes: {
+                    include: [[
+                    sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
+                    'likedCount'
+                ]]
+                }
+            });
+    
+            const petpicPosts = petpicData.map((petpicPost) =>
+            petpicPost.get({ plain: true }));
+            res.render('homepage', {
+                petpicPosts,
+                logged_in: req.session.logged_in,
+            });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json(error);
+        }
     }
 });
 
@@ -46,10 +80,12 @@ router.get('/petpic/:id', withAuth, async (req, res) => {
                 { model: Likes },
             ],
             attributes: {
-                include: [[
-                sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
-                'likedCount'
-            ]]
+                include: [
+                    [
+                        sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
+                        'likedCount'
+                    ]
+                ]
             }
         });
 
