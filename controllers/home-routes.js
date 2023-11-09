@@ -40,27 +40,21 @@ router.get('/petpic/:id', withAuth, async (req, res) => {
     try {
         const petpicData = await Posts.findByPk(req.params.id, {
             include: [
-                {
-                    model: Users,
-                    // attributes: ["users"],
-                },
-                {
-                    model: Comments,
-                    // include: [Users],
-                },
-                {
-                    model: Categories,
-                    // attributes: ["categories"],
-                },
-                {
-                    model: Likes,
-                    // attributes: ["likes"],
-                },
+                { model: Users },
+                { model: Comments },
+                { model: Categories },
+                { model: Likes },
             ],
+            attributes: {
+                include: [[
+                sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
+                'likedCount'
+            ]]
+            }
         });
 
         const petpicPost = petpicData.get({ plain: true });
-        console.log(petpicPost)
+        console.log(petpicPost);
 
         res.render('petpic', {
             ...petpicPost,
