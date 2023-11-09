@@ -27,6 +27,10 @@ a:hover {
     font-size: x-large;
 }
 
+.navbar {
+    background-color: #95a2f1;
+}
+
 #signup-button{
     margin-top: 20px;
     margin-left: 35%;
