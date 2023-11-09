@@ -11,7 +11,7 @@ const likeHandler = async (event) => {
             document.location.replace('/');
         } else {
             document.querySelector('.alert-content').textContent = "Something went wrong, please try again.";
-            document.querySelector('.custom-login-modal').classList.remove("hidden");
+            document.querySelector('.custom-logout-modal').classList.remove("hidden");
         }
   };
 
@@ -33,6 +33,12 @@ const likeHandler = async (event) => {
   };
 
 
+window.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('.like-button').forEach(el => {el.addEventListener('click',likeHandler);
+  });
+});
 
-document.querySelector('.like-button').addEventListener('click',likeHandler);
-document.querySelector('.unlike-button').addEventListener('click',unlikeHandler);
+window.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('.unlike-button').forEach(el => {el.addEventListener('click',unlikeHandler);
+  });
+});
