@@ -70,12 +70,15 @@ router.get('/', async (req, res) => {
 });
 
 // GET ROUTE to an individual petpic post
-router.get('/petpic/:id', withAuth, async (req, res) => {
+router.get('/petpic/:id', async (req, res) => {
     try {
         const petpicData = await Posts.findByPk(req.params.id, {
             include: [
                 { model: Users },
-                { model: Comments },
+                { model: Comments,
+                    include: [
+                        { model: Users },
+                    ] },
                 { model: Categories },
                 { model: Likes },
             ],
@@ -90,8 +93,6 @@ router.get('/petpic/:id', withAuth, async (req, res) => {
         });
 
         const petpicPost = petpicData.get({ plain: true });
-        console.log(petpicPost);
-
         res.render('petpic', {
             ...petpicPost,
             logged_in: req.session.logged_in,
