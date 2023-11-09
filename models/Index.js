@@ -33,7 +33,7 @@ Posts.hasMany(Likes, {
     foreignKey: 'posts_id'
 });
 
-Posts.hasMany(Categories, {
+Posts.belongsTo(Categories, {
     foreignKey: 'posts_id'
 });
 
@@ -42,10 +42,10 @@ Categories.belongsToMany(Posts, {
     foreignKey: 'categories_id'
 });
 
-Posts.belongsToMany(Categories, {
-    through: PostCategories,
-    foreignKey: 'posts_id'
-});
+// Posts.belongsToMany(Categories, {
+    // through: PostCategories,
+    // foreignKey: 'posts_id'
+// });
 
 Likes.belongsTo(Posts, {
     foreignKey: 'posts_id'
