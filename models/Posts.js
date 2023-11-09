@@ -29,6 +29,13 @@ Posts.init(
                 key: 'id'
             }
         },
+        post_category: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'categories',
+                key: 'category'
+            }
+        }
       
     },
     {
