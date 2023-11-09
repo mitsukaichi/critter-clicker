@@ -2,34 +2,29 @@
 const router = require('express').Router();
 const { Users, Posts, Comments, Categories, Likes } = require('../models'); // may need to update based off models
 const withAuth = require('../utils/auth'); // may need to update based off utils
+const sequelize = require('../config/connection');
 
 // GET ROUTE all petpic posts
 router.get('/', async (req, res) => {
     try {
         const petpicData = await Posts.findAll({
             include: [
-                {
-                    model: Users,
-                    // attributes: ["username"],
-                },
-                {
-                    model: Comments,
-                    // attributes: ["comments"],
-                },
-                {
-                    model: Categories,
-                    // attributes: ["categories"],
-                },
-                {
-                    model: Likes,
-                    // attributes: ["likes"],
-                },
+                { model: Users },
+                { model: Comments },
+                { model: Categories },
+                { model: Likes },
             ],
+            attributes: {
+                include: [[
+                sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
+                'likedCount'
+            ]]
+            }
         });
 
         const petpicPosts = petpicData.map((petpicPost) =>
         petpicPost.get({ plain: true }));
-
+        console.log(petpicData);
         res.render('homepage', {
             petpicPosts,
             logged_in: req.session.logged_in,
@@ -168,5 +163,7 @@ router.all('/login', (req, res) => {
 
     res.render('login');
 });
+
+
 
 module.exports = router;
