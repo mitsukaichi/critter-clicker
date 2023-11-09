@@ -145,7 +145,12 @@ router.get('/dashboard', withAuth, async (req, res) => {
 router.get('/create', async (req, res) => {
     try {
         if (req.session.logged_in) {
+            const categoryData = await Categories.findAll();
+            const categories = categoryData.map((category) =>
+                category.get({ plain: true }));
+            console.log(categories);
             res.render('create', {
+                categories,
                 logged_in: req.session.logged_in,
                 userId: req.session.user_id,
             });
