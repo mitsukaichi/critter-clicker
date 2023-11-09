@@ -7,7 +7,10 @@ const likeWithoutSigininHandler = (event) => {
 const closeModal = (event) => {
     document.querySelector('.custom-logout-modal').classList.add("hidden");
   };
-  
 
-  document.querySelector('.like-no-signin').addEventListener('click',likeWithoutSigininHandler);
-  document.getElementById('dismiss-modal').addEventListener('click', closeModal);
+window.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('.like-no-signin').forEach(el => {el.addEventListener('click',likeWithoutSigininHandler);
+    });
+});
+
+document.getElementById('dismiss-modal').addEventListener('click', closeModal);
