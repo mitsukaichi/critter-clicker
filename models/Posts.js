@@ -28,15 +28,7 @@ Posts.init(
                 model: 'users',
                 key: 'id'
             }
-        },
-        post_category: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'categories',
-                key: 'category'
-            }
         }
-      
     },
     {
         sequelize,
