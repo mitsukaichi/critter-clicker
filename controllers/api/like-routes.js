@@ -47,7 +47,7 @@ router.post('/:id', withAuth, async (req, res) => {
             users_id: req.session.users_id,
         });
 
-        req.status(200).json(newLike);
+        res.status(200).json(newLike);
     } catch (error) {
         console.log(error);
         res.status(400).json(error);
