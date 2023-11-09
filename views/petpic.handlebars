@@ -15,7 +15,7 @@
                     {{!-- If not logged in, render the button without fill color, with no action with like button click--}}
                     <p class="p-1"><i class="bi bi-heart like-button text-secondary" id="{{id}}"></i></p>
                 {{/if}} 
-                <p class="like-count">{{likedCount}}</p>
+                <p class="like-count p-1">{{likedCount}}</p>
             </div>
             <div class="post-metadata p-2 ">
                 <p>Posted by {{user.username}} on {{format_date createdAt}}</p>
