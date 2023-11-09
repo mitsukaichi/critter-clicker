@@ -24,14 +24,8 @@ router.get('/', async (req, res) => {
     try {
         const commentData = await Comments.findAll({
             include: [
-                {
-                    model: Users,
-                    attributes: ["users"],
-                },
-                {
-                    model: Posts,
-                    attribute: ["id"],
-                },
+                { model: Users },
+                { model: Posts },
             ],
         });
         res.status(200).json(commentData);

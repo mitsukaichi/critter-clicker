@@ -31,17 +31,17 @@
     <div class="post-details">
         <p>Category: <span class="category-name"><a href="/category/{{category_name}}">{{category_name}}</a></span> </p>
 
-        {{#each comments as |comment|}}
         <div class="comment">
-            <h4>Comment</h4>
+            <h4>Comments</h4>
+        {{#each comments as |comment|}}
             <div class="card comment-card" style="width: 30rem;">
                 <div class="card-body">
                     <p>{{comment_text}}</p>
                     <p class="comment-metadata">{{user.username}} posted on {{format_date creation_date}}</p>
                 </div>
             </div>
-        </div>
         {{/each}}
+        </div>
         {{#if logged_in }}
         <div class="add-comment">
             <form>
