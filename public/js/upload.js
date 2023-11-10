@@ -12,8 +12,6 @@ var myWidget = cloudinary.createUploadWidget(
     if (!error && result && result.event === "success") {
       console.log("Done! Here is the image info: ", result.info);
       title = result.info.url;
-      document.getElementById("uploadedimage").setAttribute("width", "600");
-      document.getElementById("uploadedimage").setAttribute("height", "300");
       document.getElementById("uploadedimage").setAttribute("src", result.info.url);
       
     }
