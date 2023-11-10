@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="post-details">
-        <p>Category: <span class="category-name"><a href="/category/{{category_name}}">{{category_name}}</a></span> </p>
+        <p>Category: <span class="category-name"><a href="/categories/{{category_name}}">{{category_name}}</a></span> </p>
 
         <div class="comment">
             <h4>Comments</h4>
@@ -37,23 +37,14 @@
         {{/each}}
         </div>
         {{#if logged_in }}
-        <div class="add-comment">
-            <form>
-                <div class="form-group add-comment">
-                    <label for="Comment">Add your comment</label>
-                    <input type="text" class="form-control" id="comment" placeholder="your comment">
-                </div>
-                <button type="button" class="btn btn-outline-primary" id="login-button">submit</button>
-            </form>
-            {{!-- Allow for JS to input error msg --}}
-            <div id="comment-error"></div>
-        </div>
+            {{> comment-form}}
         {{/if}}
     </div>
 </div>
 
 {{#if logged_in }}
     <script src="/js/like-signin.js"></script>
+    <script src="/js/comment.js"></script>
 {{else}}
     <script src="/js/like-nosignin.js"></script>
 {{/if}}

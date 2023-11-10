@@ -37,22 +37,13 @@ router.get('/', async (req, res) => {
 });
 
 // GET ROUTE to pull from specific category ID
-router.get('/catorgies/:id', withAuth, async (req, res) => {
+router.get('/catorgies/:id', async (req, res) => {
     try {
         const categoryData = await Categories.findByPk(req.params.id, {
             include: [
-                {
-                    model: Posts,
-                    attribute: ["id"],
-                },
-                {
-                    model: Users,
-                    attribute: ["users"],
-                },
-                {
-                    model: Likes,
-                    attribute: ["id"],
-                },
+                { model: Posts },
+                { model: Users },
+                { model: Likes },
             ],
         });
 
@@ -66,7 +57,6 @@ router.get('/catorgies/:id', withAuth, async (req, res) => {
     } catch (error) {
         console.log(error)
         res.status(500).json(error);
-        res.redirect('/login');
     }
 });
 
