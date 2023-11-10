@@ -157,6 +157,12 @@ router.get('/dashboard', withAuth, async (req, res) => {
                     model: Likes,
                 },
             ],
+            attributes: {
+                include: [[
+                sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
+                'likedCount'
+            ]]
+            }
         });
 
         if(!userData) {
@@ -165,7 +171,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
         }
     
         const user = userData.get({ plain: true });
-        console.log(user);
 
         res.render('dashboard', {
             ...user,
