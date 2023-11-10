@@ -30,3 +30,5 @@ async function newComment(event) {
         }
     }
 }
+
+document.getElementById("comment-form").addEventListener("submit", newComment);
