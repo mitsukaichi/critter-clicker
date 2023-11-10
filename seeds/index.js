@@ -17,7 +17,6 @@ const seedAll = async () => {
   console.log('\n----- POSTS SEEDED -----\n');
   await seedComments();
   console.log('\n----- COMMENTS SEEDED -----\n');
-
   await seedLikes();
   console.log('\n----- LIKES SEEDED -----\n');
   process.exit(0);
