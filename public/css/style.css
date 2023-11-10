@@ -18,6 +18,9 @@ a:hover {
     text-decoration: none;
 }
 
+#logout-button:hover {
+    color: black;
+}
 
 .logo {
     margin-left: 30px;

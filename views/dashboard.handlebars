@@ -1,4 +1,9 @@
 <div class="d-flex flex-column">
+    <a href="/create">
+        <button type="button" class="btn btn-lg btn-success post-new-photo-button" style="width: 40rem;">
+            POST A NEW PHOTO
+        </button>
+    </a>
     <div class="d-flex flex-wrap">
     {{#each posts as |post|}}
         <div class="card" id="{{id}}" style="width: 25rem;">
@@ -8,11 +13,11 @@
             <div class="card-body d-flex flex-column">
                 <div class="post-metadata d-flex">
                     <div class="like-section d-flex p-2 flex-grow-1">
-                        <p class="p-1"><i class="bi bi-heart like-button text-secondary" id="{{id}}"></i></p> 
-                        <p class="like-count p-1">{{likedCount}}</p>
+                        <p class="p-1"><i class="bi bi-heart-fill"></i></p> 
+                        <p class="like-count p-1">LIKES: {{likedCount}}</p>
                     </div>
                     <div class="post-metadata p-2">
-                        <p>Posted by {{user.username}} Posted on {{format_date createdAt}}</p>
+                        <p>Posted by {{user.username}} on {{format_date createdAt}}</p>
                     </div>
                 </div>
                 <button type="button" class="btn btn-danger delete-post-button" id="{{id}}">DELETE THIS</button>
@@ -20,11 +25,7 @@
         </div>
     {{/each}}
     </div>
-    <a href="/create">
-        <button type="button" class="btn btn-primary post-new-photo-button" style="width: 40rem;">
-            POST A NEW PHOTO
-        </button>
-    </a>
 </div>
 <script src="/js/like-signin.js"></script>
+<script src="/js/like-nosignin.js"></script>
 <script src="/js/delete.js"></script>

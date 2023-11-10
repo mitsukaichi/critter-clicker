@@ -9,18 +9,9 @@ router.get('/', withAuth, async (req, res) => {
     try {
         const likedData = await Likes.findAll({
             include: [
-                {
-                    model: Posts,
-                    attribute: ["id"],
-                },
-                {
-                    model: Users,
-                    attribute: ["users"],
-                },
-                {
-                    model: Categories,
-                    attribute: ["title"],
-                },
+                { model: Posts },
+                { model: Users },
+                { model: Categories },
             ],
         });
 
