@@ -1,9 +1,9 @@
 <div class="d-flex flex-column">
     <div class="d-flex flex-wrap">
     {{#each posts as |post|}}
-        <a href="/petpic/{{id}}">
+        
             <div class="card" id="{{id}}" style="width: 25rem;">
-                <img class="card-img-top" src="{{title}}">
+                <a href="/petpic/{{id}}"><img class="card-img-top" src="{{title}}" /></a>
                 <div class="card-body d-flex flex-column">
                     <div class="post-metadata d-flex">
                         <div class="like-section d-flex p-2 flex-grow-1">
@@ -11,18 +11,17 @@
                             <p class="like-count p-1">{{likedCount}}</p>
                         </div>
                         <div class="post-metadata p-2">
-                            <p>Posted by {{user.username}} Posted on {{format_date createdAt}}</p>
+                            <p>Posted by {{user.username}} on {{format_date createdAt}}</p>
                             
                         </div>
                     </div>
                     <button type="button" class="btn btn-danger delete-post-button" id="{{id}}">DELETE THIS</button>
                 </div>
             </div>
-        </a>
     
     {{/each}}
     </div>
-        <button type="button" class="btn btn-primary post-new-photo-button">
+        <button type="button" class="btn btn-success btn-lg post-new-photo-button">
             <a href="/create">POST A NEW PHOTO</a>
         </button>
 </div>
