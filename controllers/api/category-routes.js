@@ -8,18 +8,9 @@ router.get('/', async (req, res) => {
     try {
         const categoryData = await Categories.findAll(req.params.id, {
             include: [
-                {
-                    model: Posts,
-                    attribute: ["id"],
-                },
-                {
-                    model: Users,
-                    attribute: ["users"],
-                },
-                {
-                    model: Likes,
-                    attribute: ["id"],
-                },
+                { model: Posts },
+                { model: Users },
+                { model: Likes },
             ],
         });
 
