@@ -22,16 +22,16 @@
         <div class="navbar-expand" id="navbarNav">
             <ul class="navbar-nav ml-3 row">
                 <li class="nav-item active">
-                    <a class="nav-item nav-link" href="/">Home</a>
+                    <a class="nav-item nav-link" href="/"><i class="bi bi-house"></i> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
+                    <a class="nav-item nav-link" href="/dashboard"><i class="bi bi-speedometer"></i> Dashboard</a>
                 </li>
                 <li class="nav-item">
                     {{#if logged_in}}
-                        <button class="btn btn-sm btn-outline-secondary bg-white m-3" type="button" id="logout-button">Log out</button>
+                        <button class="btn btn-sm btn-outline-secondary bg-white m-3" type="button" id="logout-button"><i class="bi bi-box-arrow-in-right"></i> Log out</button>
                     {{else}}
-                        <a class="nav-item nav-link" href="/dashboard">Log in</a>
+                        <a class="nav-item nav-link" href="/dashboard"><i class="bi bi-box-arrow-in-left"></i> Log in</a>
                     {{/if}}
                 </li>
             </ul>
