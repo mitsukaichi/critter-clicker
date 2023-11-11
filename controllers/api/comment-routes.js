@@ -1,6 +1,6 @@
 // IMPORTS
 const router = require('express').Router();
-const { Users, Posts, Comments, Categories, Likes } = require('../../models');
+const { Users, Posts, Comments } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // POST ROUTE to post a comment
