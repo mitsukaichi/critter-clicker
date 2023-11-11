@@ -142,29 +142,6 @@ router.get('/petpic/:id', async (req, res) => {
 
 // GET ROUTE to navigate to dashboard
 router.get('/dashboard', withAuth, async (req, res) => {
-    // try {
-    //     const userData = await Users.findByPk(req.session.users_id, {
-    //         attributes: { exclude: ["password"] },
-    //         include: [
-    //             {
-    //                 model: Posts,
-    //                 include: [Users],
-    //             },
-    //             {
-    //                 model: Comments,
-    //             },
-    //             {
-    //                 model: Likes,
-    //             },
-    //         ],
-    //         attributes: {
-    //             include: [[
-    //             sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
-    //             'likedCount'
-    //         ]]
-    //         }
-    //     });
-
     try {
         const petpicData = await Posts.findAll({
             where: {
@@ -188,16 +165,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
         const petpicPosts = petpicData.map((petpicPost) =>
         petpicPost.get({ plain: true }));
 
-        // if(!userData) {
-        //     res.status(404).json({ message: "No user found with that ID"});
-        //     return;
-        // }
-    
-        // const user = userData.get({ plain: true });
-        // console.log(userData);
-        // res.render('dashboard', {
-        //     ...user,
-        //     logged_in: true,
         console.log(petpicPosts);
         res.render('dashboard', {
             petpicPosts,

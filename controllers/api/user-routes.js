@@ -1,6 +1,6 @@
 // IMPORTS
 const router = require('express').Router();
-const { Users, Posts, Comments, Categories, Likes } = require('../../models');
+const { Users } = require('../../models');
 
 // POST ROUTE to create a new user
 router.post('/', async (req, res) => {

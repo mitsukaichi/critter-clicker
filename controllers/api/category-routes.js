@@ -1,7 +1,6 @@
 // IMPORTS
 const router = require('express').Router();
-const { Users, Posts, Comments, Categories, Likes } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { Users, Posts, Categories, Likes } = require('../../models');
 
 // GET ROUTE to pull ALL categories
 router.get('/', async (req, res) => {
