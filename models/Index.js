@@ -62,5 +62,4 @@ Posts.belongsTo(Categories, {
     foreignKey: 'categories_id'
 });
 
-
 module.exports = { Comments, Users, Posts, Categories, Likes }
