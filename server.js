@@ -3,19 +3,10 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const cloudinary = require('cloudinary').v2;
-require('dotenv').config();
 
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
-
-cloudinary.config({
-  cloud_name: 'dirnyqnho',
-  api_key: '765791127376417',
-  api_secret: 'YNR17a89Qsk0mJihg0BurP6IxHE',
-  secure: true
-});
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -23,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 const sess = {
   secret: 'Something something something',
   cookie: {
-    maxAge: 720000,
+    maxAge: 1720000,
     httpOnly: false,
   },
   resave: false,
@@ -32,7 +23,6 @@ const sess = {
     db: sequelize,
   }),
 };
-
 
 app.use(session(sess));
 
@@ -48,5 +38,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}`));
 });
