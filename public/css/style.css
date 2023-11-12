@@ -108,3 +108,8 @@ a:hover {
     margin-left: 10%;
     margin-right: 10%;
 }
+
+.category-name a {
+    color: blue;
+    font-weight: bolder;
+}
