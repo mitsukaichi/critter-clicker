@@ -1,25 +1,15 @@
 // IMPORTS
 const router = require('express').Router();
-const { Users, Posts, Comments, Categories, Likes } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { Users, Posts, Categories, Likes } = require('../../models');
 
 // GET ROUTE to pull ALL categories
 router.get('/', async (req, res) => {
     try {
         const categoryData = await Categories.findAll(req.params.id, {
             include: [
-                {
-                    model: Posts,
-                    attribute: ["id"],
-                },
-                {
-                    model: Users,
-                    attribute: ["users"],
-                },
-                {
-                    model: Likes,
-                    attribute: ["id"],
-                },
+                { model: Posts },
+                { model: Users },
+                { model: Likes },
             ],
         });
 
@@ -37,22 +27,13 @@ router.get('/', async (req, res) => {
 });
 
 // GET ROUTE to pull from specific category ID
-router.get('/catorgies/:id', withAuth, async (req, res) => {
+router.get('/categories/:id', async (req, res) => {
     try {
         const categoryData = await Categories.findByPk(req.params.id, {
             include: [
-                {
-                    model: Posts,
-                    attribute: ["id"],
-                },
-                {
-                    model: Users,
-                    attribute: ["users"],
-                },
-                {
-                    model: Likes,
-                    attribute: ["id"],
-                },
+                { model: Posts },
+                { model: Users },
+                { model: Likes },
             ],
         });
 
@@ -66,7 +47,6 @@ router.get('/catorgies/:id', withAuth, async (req, res) => {
     } catch (error) {
         console.log(error)
         res.status(500).json(error);
-        res.redirect('/login');
     }
 });
 

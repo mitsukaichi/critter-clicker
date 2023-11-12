@@ -1,6 +1,6 @@
 // IMPORTS
 const router = require('express').Router();
-const { Users, Posts, Comments, Categories, Likes } = require('../../models');
+const { Users, Posts, Categories, Likes } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET ROUTE to pull all liked posts
@@ -9,18 +9,9 @@ router.get('/', withAuth, async (req, res) => {
     try {
         const likedData = await Likes.findAll({
             include: [
-                {
-                    model: Posts,
-                    attribute: ["id"],
-                },
-                {
-                    model: Users,
-                    attribute: ["users"],
-                },
-                {
-                    model: Categories,
-                    attribute: ["title"],
-                },
+                { model: Posts },
+                { model: Users },
+                { model: Categories },
             ],
         });
 
@@ -47,7 +38,7 @@ router.post('/:id', withAuth, async (req, res) => {
             users_id: req.session.users_id,
         });
 
-        req.status(200).json(newLike);
+        res.status(200).json(newLike);
     } catch (error) {
         console.log(error);
         res.status(400).json(error);
@@ -56,11 +47,13 @@ router.post('/:id', withAuth, async (req, res) => {
 
 // DELETE ROUTE to remove a like from a petpic post
 router.delete('/:id', withAuth, async (req, res) => {
-    console.log(req.params.id);
+    console.log(req.body);
+    console.log(req.session.users_id);
     try {
         const likedData = await Likes.destroy({
             where: {
-                id: req.params.id,
+                users_id: req.session.users_id,
+                posts_id: req.body.posts_id
             },
         });
 

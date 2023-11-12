@@ -2,22 +2,25 @@ const { Categories } = require('../models');
 
 const categoryData = [
   {
-    title: "Dog",
+    category: "Dog",
   },
   {
-    title: "Cat",
+    category: "Cat",
   },
   {
-    title: "Fish",
+    category: "Fish",
   },
   {
-    title: "Bird",
+    category: "Bird",
   },
   {
-    title: "Amphibian",
+    category: "Amphibian",
   },
   {
-    title: "Dog",
+    category: "Reptile",
+  },
+  {
+    category: "Rodent",
   },
 ];
 

@@ -12,8 +12,15 @@ const loginFormHandler = async (event) => {
             // reload the page to generate the content shown for the user after logging in
             document.location.replace('/dashboard');
         } else {
-            document.querySelector('.alert-content').textContent = "Incorrect email or password. Please try again";
-            document.querySelector('.custom-login-modal').classList.remove("hidden");
+          response.json()
+            .then(dataErr => {
+              if (dataErr.message) {
+                document.querySelector('.alert-content').textContent = dataErr.message;
+              } else {
+              document.querySelector('.alert-content').textContent = dataErr.errors[0].message;
+              }
+              document.querySelector('.custom-login-modal').classList.remove("hidden");
+            }); 
         }
     }
   };
@@ -29,11 +36,19 @@ const signUpHandler = async (event) => {
           body: JSON.stringify({ username, email, password }),
           headers: { 'Content-Type': 'application/json' },
         });
+        const errorMsg = await response.json;
         if (response.ok) {
             // reload the page to generate the content shown for the user after logging in
             document.location.replace('/dashboard');
         } else {
-            document.querySelector('.alert-content').textContent = "Something went wrong. Please try again";
+            response.json()
+            .then(dataErr => {
+              if (dataErr.message) {
+                document.querySelector('.alert-content').textContent = dataErr.message;
+              } else {
+              document.querySelector('.alert-content').textContent = dataErr.errors[0].message;
+              }
+            }); 
             document.querySelector('.custom-login-modal').classList.remove("hidden");
         }
       }

@@ -9,7 +9,7 @@ const likeHandler = async (event) => {
       });
         if (response.ok) {
             // reload the page to generate the content shown for the user after logging in
-            document.location.replace('/');
+            location.reload();
         } else {
             document.querySelector('.alert-content').textContent = "Something went wrong, please try again.";
             document.querySelector('.custom-logout-modal').classList.remove("hidden");
@@ -18,16 +18,15 @@ const likeHandler = async (event) => {
 
   const unlikeHandler = async (event) => {
     event.preventDefault();
-    const posts_id = event.target.id;
-    const liked = false;
+    const posts_id = event.currentTarget.id;
     const response = await fetch(`/api/likes/${posts_id}`, {
         method: 'DELETE',
-        body: JSON.stringify({ posts_id, liked }),
+        body: JSON.stringify({ posts_id }),
         headers: { 'Content-Type': 'application/json' },
       });
         if (response.ok) {
             // reload the page to generate the content shown for the user after logging in
-            document.location.replace('/');
+            location.reload();
         } else {
             document.querySelector('.alert-content').textContent = "Something went wrong, please try again.";
             document.querySelector('.custom-logout-modal').classList.remove("hidden");

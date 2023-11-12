@@ -1,8 +1,7 @@
 // IMPORTS
 const router = require('express').Router();
-const { Users, Posts, Comments, Categories, Likes } = require('../../models');
+const { Posts } = require('../../models');
 const withAuth = require('../../utils/auth');
-const { route } = require('./user-routes');
 
 // POST ROUTE to create a new petpic post
 router.post('/', withAuth, async (req, res) => {

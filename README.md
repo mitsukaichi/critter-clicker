@@ -101,7 +101,7 @@ This is a full stack project to share pet pics with the community. If you would 
 ## License
 
 MIT License
-Copyright (c) 2023
+Copyright (c) 2023 Minami Mukai (Itsukaichi)
 
 <hr />
 

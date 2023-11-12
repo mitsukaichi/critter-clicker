@@ -1,16 +1,16 @@
 // IMPORTS
 const router = require('express').Router();
-const { Users, Posts, Comments, Categories, Likes } = require('../../models');
+const { Users, Posts, Comments } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // POST ROUTE to post a comment
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         console.log("Time to post a comment!");
         const comment = await Comments.create({
             comment_text: req.body.comment_text,
             posts_id: req.body.posts_id,
-            users_id: req.session.users_id || req.body.users_id,
+            users_id: req.session.users_id,
         });
         res.status(200).json(comment);
     } catch (error) {
@@ -24,14 +24,8 @@ router.get('/', async (req, res) => {
     try {
         const commentData = await Comments.findAll({
             include: [
-                {
-                    model: Users,
-                    attributes: ["users"],
-                },
-                {
-                    model: Posts,
-                    attribute: ["id"],
-                },
+                { model: Users },
+                { model: Posts },
             ],
         });
         res.status(200).json(commentData);
