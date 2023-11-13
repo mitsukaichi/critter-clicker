@@ -10,6 +10,9 @@ router.get('/', async (req, res) => {
     if (req.session.users_id)  {
         try {
             const petpicData = await Posts.findAll({
+                order: [
+                    ['createdAt', 'DESC']
+                ]
                 include: [
                     { model: Users },
                     { model: Comments },
