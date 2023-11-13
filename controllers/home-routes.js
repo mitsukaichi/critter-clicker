@@ -241,6 +241,80 @@ router.all('/login', (req, res) => {
     res.render('login');
 });
 
-
+// Category route 
+router.get('/categories/:id', async (req, res) => {
+    if (req.session.users_id)  {
+        try {
+            const petpicData = await Posts.findAll({
+                where: {
+                    categories_id: req.params.id,
+                    }, 
+                order: [
+                    ['createdAt', 'DESC']
+                ],
+                include: [
+                    { model: Users },
+                    { model: Comments },
+                    { model: Categories },
+                    { model: Likes },
+                ],
+                attributes: {
+                    include: [
+                        [
+                            sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
+                            'likedCount'
+                        ],
+                        [
+                            sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE users_id = ${req.session.users_id} AND liked = true AND likes.posts_id = posts.id)`),
+                            'isLiked'
+                        ]
+                    ]
+                }
+            });
+            const petpicPosts = petpicData.map((petpicPost) =>
+            petpicPost.get({ plain: true }));
+            res.render('homepage', {
+                petpicPosts,
+                logged_in: req.session.logged_in,
+            });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json(error);
+        }
+    } else {
+        try {
+            const petpicData = await Posts.findAll({
+                where: {
+                    categories_id: req.params.id,
+                    },
+                order: [
+                    ['createdAt', 'DESC']
+                ],
+                include: [
+                    { model: Users },
+                    { model: Comments },
+                    { model: Categories },
+                    { model: Likes },
+                ],
+                attributes: {
+                    include: [[
+                    sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
+                    'likedCount'
+                ]]
+                }
+            });
+    
+            const petpicPosts = petpicData.map((petpicPost) =>
+            petpicPost.get({ plain: true }));
+            res.render('homepage', {
+                petpicPosts,
+                logged_in: req.session.logged_in,
+            });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json(error);
+        }
+    }
+});
 
 module.exports = router;
