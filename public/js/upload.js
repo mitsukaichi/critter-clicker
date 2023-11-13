@@ -22,10 +22,10 @@ var uploadPost = async (event) => {
   if (title) {
     const selectElement = document.getElementById("selectedCategory");
     categories_id = selectElement.options[selectElement.selectedIndex].value;
-    const post_text = "Hello World";
+    // const post_text = "Hello World";
     const response = await fetch('/api/petpic/', {
       method: 'POST',
-      body: JSON.stringify({ title, categories_id, post_text }),
+      body: JSON.stringify({ title, categories_id }),
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
