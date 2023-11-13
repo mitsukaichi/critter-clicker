@@ -15,13 +15,13 @@ Posts.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        post_text: {
+        /*post_text: {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
                 len: [1]
             }
-        },
+        },*/
         users_id: {
             type: DataTypes.INTEGER,
             references: {
