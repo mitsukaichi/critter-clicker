@@ -22,7 +22,7 @@ var uploadPost = async (event) => {
   if (title) {
     const selectElement = document.getElementById("selectedCategory");
     category = selectElement.options[selectElement.selectedIndex].value;
-    const post_text = "aaaaaaaaaaaaaaaaaaa";
+    const post_text = "Hello World";
     const response = await fetch('/api/petpic/', {
       method: 'POST',
       body: JSON.stringify({ title, category, post_text }),
