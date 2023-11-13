@@ -29,14 +29,13 @@ Posts.init(
                 key: 'id'
             }
         },
-        post_category: {
+        categories_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'categories',
                 key: 'id'
             }
         }
-      
     },
     {
         sequelize,

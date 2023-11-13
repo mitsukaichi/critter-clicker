@@ -9,11 +9,18 @@ a {
     color: black;
 }
 
+.btn a {
+    color: white;
+}
+
 a:hover {
     color: black;
     text-decoration: none;
 }
 
+#logout-button:hover {
+    color: black;
+}
 
 .logo {
     margin-left: 30px;
@@ -25,6 +32,10 @@ a:hover {
 
 .nav-link{
     font-size: x-large;
+}
+
+.navbar {
+    background-color: #95a2f1;
 }
 
 #signup-button{
@@ -74,6 +85,10 @@ a:hover {
     margin-right: 10px;
 }
 
+.unlike-button{
+    margin-right: 10px;
+}
+
 .post-metadata p {
     font-size: smaller;
 }
@@ -96,4 +111,9 @@ a:hover {
 #submit-new-post {
     margin-left: 10%;
     margin-right: 10%;
+}
+
+.category-name a {
+    color: blue;
+    font-weight: bolder;
 }

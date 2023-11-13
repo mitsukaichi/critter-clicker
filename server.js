@@ -8,24 +8,13 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 
-//
-// const cloudinary = require('cloudinary').v2;
-// require('dotenv').config();
-
-// cloudinary.config({
-//   cloud_name: CLOUD_NAME,
-//   api_key: CLOUD_KEY,
-//   api_secret: CLOUD_SECRET,
-//   secure: true
-// });
-//
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sess = {
   secret: 'Something something something',
   cookie: {
-    maxAge: 720000,
+    maxAge: 1720000,
     httpOnly: false,
   },
   resave: false,

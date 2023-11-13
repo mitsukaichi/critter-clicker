@@ -1,0 +1,64 @@
+<div class="d-flex flex-wrap">
+    {{#if logged_in }}
+        {{#each petpicPosts as |post|}}
+        <div class="card" id="post-{{id}}" style="width: 25rem;">
+            <a href="/petpic/{{id}}">
+                <img class="card-img-top" src="{{title}}">
+            </a>
+            <div class="card-body d-flex">
+            <div class="like-section d-flex p-2 flex-grow-1">
+                {{#if isLiked}}
+                    <p class="p-1"><i class="bi bi-heart-fill unlike-button text-danger" id="{{id}}"></i></p>
+                {{else}}
+                    <p class="p-1"><i class="bi bi-heart like-button text-secondary" id="{{id}}"></i></p>
+                {{/if}}
+                {{#if likedCount}}
+                <p class="like-count p-1" id="count-{{id}}">{{likedCount}}</p>
+                {{else}}
+                <p class="like-count p-1" id="count-{{id}}">0</p>
+                {{/if}}
+            </div>
+            <div class="post-metadata p-3">
+                <p>Posted by {{user.username}} on {{format_date createdAt}}</p>
+            </div>
+            </div>
+        </div>
+        {{/each}}
+    {{else}}
+        {{#each petpicPosts as |post|}}
+        <div class="card" id="{{id}}" style="width: 25rem;">
+            <a href="/petpic/{{id}}">
+                <img class="card-img-top" src="{{title}}">
+            </a>
+            <div class="card-body d-flex">
+            <div class="like-section d-flex p-2 flex-grow-1">
+                {{!-- If not logged in, render the button without fill color, with no action with like button click--}}
+                <p class="p-1"><i class="bi bi-heart like-no-signin text-secondary" id="{{id}}"></i></p>
+                {{#if likedCount}}
+                <p class="like-count p-1" id="count-{{id}}">{{likedCount}}</p>
+                {{else}}
+                <p class="like-count p-1" id="count-{{id}}">0</p>
+                {{/if}}
+            </div>
+            <div class="post-metadata p-2">
+                <p>Posted by {{user.username}} on {{format_date createdAt}}</p>
+            </div>
+            </div>
+        </div>
+        {{/each}}
+    {{/if}}
+</div>
+
+<!-- Modal -->
+    <div class="hidden custom-logout-modal d-flex justify-content-around">
+        <div class = "card custom-modal-body" style="width: 25rem; height: 7rem;">
+            <div class="card-body alert-content"></div>
+            <button type="button" class="btn btn-outline-secondary" id="dismiss-modal">CLOSE</button>
+        </div>
+    </div>
+
+{{#if logged_in }}
+    <script src="/js/like-signin.js"></script>
+{{else}}
+    <script src="/js/like-nosignin.js"></script>
+{{/if}}
