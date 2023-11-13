@@ -85,6 +85,10 @@ a:hover {
     margin-right: 10px;
 }
 
+.unlike-button{
+    margin-right: 10px;
+}
+
 .post-metadata p {
     font-size: smaller;
 }

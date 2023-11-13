@@ -6,7 +6,7 @@
     </a>
     <div class="d-flex flex-wrap">
     {{#each petpicPosts as |post|}}
-        <div class="card" id="{{id}}" style="width: 25rem;">
+        <div class="card" id="post-{{id}}" style="width: 25rem;">
             <a href="/petpic/{{id}}">
                 <img class="card-img-top" src="{{title}}">
             </a>
@@ -14,7 +14,13 @@
                 <div class="post-metadata d-flex">
                     <div class="like-section d-flex p-2 flex-grow-1">
                         <p class="p-1"><i class="bi bi-heart-fill"></i></p> 
-                        <p class="like-count p-1">LIKES: {{likedCount}}</p>
+                        <p class="like-count p-1">LIKES: 
+                            {{#if likedCount}}
+                                {{likedCount}}
+                            {{else}}
+                                0
+                            {{/if}}
+                        </p>
                     </div>
                     <div class="post-metadata p-2">
                         <p>Posted by {{user.username}} on {{format_date createdAt}}</p>

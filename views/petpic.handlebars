@@ -1,5 +1,5 @@
 <div class ="d-flex align-items-center flex-column">
-    <div class="card" id="id" style="width: 30rem;">
+    <div class="card" id="post-{{id}}" style="width: 30rem;">
         <img class="card-img-top" src="{{title}}">
         <div class="card-body d-flex">
             <div class="like-section d-flex p-2 flex-grow-1 ">
@@ -15,7 +15,11 @@
                     {{!-- If not logged in, render the button without fill color, with no action with like button click--}}
                     <p class="p-1"><i class="bi bi-heart like-button text-secondary" id="{{id}}"></i></p>
                 {{/if}} 
-                <p class="like-count p-1">{{likedCount}}</p>
+                {{#if likedCount}}
+                <p class="like-count p-1" id="count-{{id}}">{{likedCount}}</p>
+                {{else}}
+                <p class="like-count p-1" id="count-{{id}}">0</p>
+                {{/if}}
             </div>
             <div class="post-metadata p-2 ">
                 <p>Posted by {{user.username}} on {{format_date createdAt}}</p>
