@@ -47,9 +47,9 @@ document.getElementById("test_widget").addEventListener(
   false
 );
 
-const closeModal = (event) => {
+const closeAlertModal = (event) => {
   document.querySelector('.custom-login-modal').classList.add("hidden");
 };
 
 document.getElementById("create-new-post").addEventListener("click",uploadPost);
-document.getElementById('dismiss-modal').addEventListener('click', closeModal);
+document.getElementById('dismiss-modal').addEventListener('click', closeAlertModal);
