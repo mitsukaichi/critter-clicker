@@ -1,7 +1,7 @@
 var cloudName = "dacwtore8"; // replace with your own cloud name
 var uploadPreset = "xkitthvf"; // replace with your own upload preset
 var title;
-var category;
+var categories_id;
 
 var myWidget = cloudinary.createUploadWidget(
   {
@@ -21,11 +21,11 @@ var myWidget = cloudinary.createUploadWidget(
 var uploadPost = async (event) => {
   if (title) {
     const selectElement = document.getElementById("selectedCategory");
-    category = selectElement.options[selectElement.selectedIndex].value;
-    const post_text = "aaaaaaaaaaaaaaaaaaa";
+    categories_id = selectElement.options[selectElement.selectedIndex].value;
+    const post_text = "Hello World";
     const response = await fetch('/api/petpic/', {
       method: 'POST',
-      body: JSON.stringify({ title, category, post_text }),
+      body: JSON.stringify({ title, categories_id, post_text }),
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
