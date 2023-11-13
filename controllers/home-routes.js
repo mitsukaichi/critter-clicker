@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
             const petpicData = await Posts.findAll({
                 order: [
                     ['createdAt', 'DESC']
-                ]
+                ],
                 include: [
                     { model: Users },
                     { model: Comments },
@@ -45,6 +45,9 @@ router.get('/', async (req, res) => {
     } else {
         try {
             const petpicData = await Posts.findAll({
+                order: [
+                    ['createdAt', 'DESC']
+                ],
                 include: [
                     { model: Users },
                     { model: Comments },
