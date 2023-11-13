@@ -1,7 +1,7 @@
 # CRITTER CLICKER
 
-### [View Live Project Here](https:// "CRITTER CLICKER")<br />
-![image of CRITTER CLICKER](/public/img/projectimage.png "image of CRITTER CLICKER")
+### [View Live Project Here](https://critter-clicker-c6c973aed451.herokuapp.com/dashboard "CRITTER CLICKER")<br />
+![image of CRITTER CLICKER](https://github.com/mitsukaichi/critter-clicker/assets/45612744/83ec2964-b213-4273-8f44-4bc722c87b9e "image of CRITTER CLICKER")
 | Technology Used    | Resource URL |
 | --------  | ------- |
 | NodeJS      | https://nodejs.org/en |
@@ -21,7 +21,8 @@
 | Git       | https://git-scm.com/ |
 | GitHub     | https://github.com/ |
 | VSCode    | https://code.visualstudio.com/ |
---->Update tech used!
+| Cloudinary    | https://cloudinary.com/ |
+
 
 ## Table of Contents
 
