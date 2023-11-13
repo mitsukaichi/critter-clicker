@@ -359,7 +359,7 @@ router.get('/likes', async (req, res) => {
         try {
             const petpicData = await Posts.findAll({
                 order: [
-                    ['createdAt', 'DESC']
+                    ['likedCount', 'DESC']
                 ],
                 include: [
                     { model: Users },
