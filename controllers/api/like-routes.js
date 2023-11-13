@@ -31,13 +31,11 @@ router.get('/', withAuth, async (req, res) => {
 
 // POST ROUTE to add a like to a petpic post
 router.post('/:id', withAuth, async (req, res) => {
-    console.log(req.body);
     try {
         const newLike = await Likes.create({
             ...req.body,
             users_id: req.session.users_id,
         });
-
         res.status(200).json(newLike);
     } catch (error) {
         console.log(error);
@@ -47,8 +45,6 @@ router.post('/:id', withAuth, async (req, res) => {
 
 // DELETE ROUTE to remove a like from a petpic post
 router.delete('/:id', withAuth, async (req, res) => {
-    console.log(req.body);
-    console.log(req.session.users_id);
     try {
         const likedData = await Likes.destroy({
             where: {
@@ -56,7 +52,6 @@ router.delete('/:id', withAuth, async (req, res) => {
                 posts_id: req.body.posts_id
             },
         });
-
         if (!likedData) {
             res.status(404).json({ message: "Could not find"});
             return;
