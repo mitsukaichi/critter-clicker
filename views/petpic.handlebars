@@ -1,5 +1,5 @@
 <div class ="d-flex align-items-center flex-column">
-    <div class="card" id="post-{{id}}" style="width: 30rem;">
+    <div class="comment-card card" id="post-{{id}}">
         <img class="card-img-top" src="{{title}}">
         <div class="card-body d-flex">
             <div class="like-section d-flex p-2 flex-grow-1 ">
@@ -32,14 +32,14 @@
     <div class="comment">
             <h2>Comments</h2>
         {{#each comments as |comment|}}
-            <div class="card comment-card" style="width: 30rem;">
+            <div class="card comment-card">
                 <div class="card-body">
                     <p>{{comment_text}}</p>
                     <p class="comment-metadata">{{user.username}} posted on {{format_date creation_date}}</p>
                 </div>
             </div>
         {{/each}}
-        </div>
+    </div>
 </div>
         {{#if logged_in }}
             {{> comment-form}}
