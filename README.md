@@ -31,15 +31,28 @@
 * [Usage](#usage)
 * [Credits](#credits)
 * [License](#license)
+* [Authors](#authors)
 
 ## Description:
-This project is a full stack project to share pet pics with the community. Add more description here.<br />
+This project is a full stack project to share pet pics with the community. [4 authors](#authors) developed this app which allow users to see, like, comment on the pictures of other people's pets and post or delete the photo of your pet(s). User can sign up, sign in and log out from the page and some functionalities such as like, comment and post photos are limited to signed in users.<br />
 <br />
 
 ### How to use this app:
 
 * Click on the deployed link above 'View Live Project Here'
-* Type up interaction notes
+    * See photos with like counts on Home page
+    * Click on the individual photo to see the comments and category
+    * Click on the category name to see other photos in the same category
+    * Click "Most liked" in the nav bar to see the photos ordered by the like counts
+
+* Navigate to the "LOGIN" to sign up for more functionalities
+    * Enter credentials
+    * Navigate back to the home page and like posts
+    * Click on the indivudual photo to leave comments
+    * Go to Dashboard page from the link in the nav bar
+    * Post your pet's photo
+    * Delete your pet's photo if you need
+    * Log out from the button in the nav bar
 
 ## Project Requirements
 
@@ -62,10 +75,16 @@ Have a quality README (with unique name, description, technologies used, screens
 
 ### Lessons Learned
 
-#### 1. Title
-Add notes
+#### 1. Difference between event.target and event.currentTarget
+While I was working on Javascript function to like and unlike individual photo, grabbing the ID of the each post from the ID of the clicked element was not always successfull and post_id remained undefined. This was due to the [event bubbling](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling) - event bubbles up from the innermost element that was clicked to its parents. 
+
+To explicitly get the ID of that the event listener is attached to, switching from event.target to event.currentTarget solved this problem.
 <br />
-![lesson 1](public/img/lesson1.png)
+Javascript
+![lesson 1](https://github.com/mitsukaichi/critter-clicker/assets/45612744/3a725400-f59d-4680-af6e-addeab2d81a2)
+
+HTML (Handlebar)
+![lesson 1](https://github.com/mitsukaichi/critter-clicker/assets/45612744/64e56ae1-40cd-4d8a-aac0-2831734a33d9)
 
 #### 2. Title
 Add notes
@@ -106,11 +125,11 @@ Copyright (c) 2023 Minami Mukai (Itsukaichi)
 
 <hr />
 
-## About The Authors
+## Authors
 ### Minami Mukai (Itsukaichi)
 Description
-- [GitHub](https://github.com/) - update URL
-- [LinkedIn](https://www.linkedin.com/in/) - update URL
+- [GitHub](https://github.com/mitsukaichi/)
+- [LinkedIn](https://www.linkedin.com/in/minami-itsukaichi/)
 
 ### Anthony Nguyen
 Description
