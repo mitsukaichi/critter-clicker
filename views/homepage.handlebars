@@ -1,26 +1,26 @@
 <div class="d-flex flex-wrap">
     {{#if logged_in }}
         {{#each petpicPosts as |post|}}
-        <div class="card" id="post-{{id}}" style="width: 25rem;">
+        <div class="card" id="post-{{id}}">
             <a href="/petpic/{{id}}">
                 <img class="card-img-top" src="{{title}}">
             </a>
             <div class="card-body d-flex">
-            <div class="like-section d-flex p-2 flex-grow-1">
-                {{#if isLiked}}
-                    <p class="p-1"><i class="bi bi-heart-fill unlike-button text-danger" id="{{id}}"></i></p>
-                {{else}}
-                    <p class="p-1"><i class="bi bi-heart like-button text-secondary" id="{{id}}"></i></p>
-                {{/if}}
-                {{#if likedCount}}
-                <p class="like-count p-1" id="count-{{id}}">{{likedCount}}</p>
-                {{else}}
-                <p class="like-count p-1" id="count-{{id}}">0</p>
-                {{/if}}
-            </div>
-            <div class="post-metadata p-3">
-                <p>Posted by {{user.username}} on {{format_date createdAt}}</p>
-            </div>
+                <div class="like-section d-flex p-2 flex-grow-1">
+                    {{#if isLiked}}
+                        <p class="p-1"><i class="bi bi-heart-fill unlike-button text-danger" id="{{id}}"></i></p>
+                    {{else}}
+                        <p class="p-1"><i class="bi bi-heart like-button text-secondary" id="{{id}}"></i></p>
+                    {{/if}}
+                    {{#if likedCount}}
+                    <p class="like-count p-1" id="count-{{id}}">{{likedCount}}</p>
+                    {{else}}
+                    <p class="like-count p-1" id="count-{{id}}">0</p>
+                    {{/if}}
+                </div>
+                <div class="post-metadata p-3">
+                    <p>Posted by {{user.username}} on {{format_date createdAt}}</p>
+                </div>
             </div>
         </div>
         {{/each}}

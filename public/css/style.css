@@ -40,21 +40,15 @@ a:hover {
 
 #signup-button{
     margin-top: 20px;
-    margin-left: 35%;
 }
 
 #login-button{
     margin-top: 20px;
-    margin-left: 35%;
 }
 
 #comment-button{
     width: 150px;
     margin-left: 30%;
-}
-
-.card{
-    margin: 30px;
 }
 
 .custom-login-modal {
@@ -102,10 +96,18 @@ a:hover {
     border-color: white;
 }
 
+.card {
+    margin: 15px;
+    width: 25rem;
+}
+
+.comment-card {
+    width: 30rem;
+}
+
 .post-new-photo-button {
     margin-top: 10px;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-bottom: 10px;
 }
 
 #submit-new-post {
@@ -116,4 +118,16 @@ a:hover {
 .category-name a {
     color: blue;
     font-weight: bolder;
+}
+
+.delete-post-button {
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        width: 20rem;
+    }
 }

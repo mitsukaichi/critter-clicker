@@ -1,12 +1,12 @@
-<div class="d-flex flex-column">
+<div class="d-flex flex-column align-items-center">
     <a href="/create">
-        <button type="button" class="btn btn-lg btn-success post-new-photo-button" style="width: 40rem;">
+        <button type="button" class="btn btn-lg btn-success post-new-photo-button">
             POST A NEW PHOTO
         </button>
     </a>
     <div class="d-flex flex-wrap">
     {{#each petpicPosts as |post|}}
-        <div class="card" id="post-{{id}}" style="width: 25rem;">
+        <div class="card" id="post-{{id}}">
             <a href="/petpic/{{id}}">
                 <img class="card-img-top" src="{{title}}">
             </a>
