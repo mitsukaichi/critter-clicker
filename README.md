@@ -93,10 +93,10 @@ This project gave us the opportunity to create a database from scratch. Creating
 ![Database schema](https://github.com/mitsukaichi/critter-clicker/assets/143736506/2bb70d19-37c4-43d6-af45-1ba98862ea3f)
 
 
-#### 3. Title
-Add notes
+#### 3. Cloudinary Platform
+Our work, required a platform to retrieve and upload a picture and show it on our webpage. This gave me chance to explore the docs of the API was a good experience for me to learn about the platform and it's uses to integrate into our project. By installing their package and configuring the cloudinary object with the associated credentials. Below, shows the configuration and grabbing the image url from cloud required for our project to preview it.
 <br />
-![lesson 3](public/img/lesson3.png)
+![Cloudinary](https://github.com/mitsukaichi/critter-clicker/assets/144869976/4221189f-c6c3-44bb-9fbb-c9da63297053)
 
 #### 4. Title
 Add notes
@@ -135,8 +135,8 @@ Description
 
 ### Anthony Nguyen
 Description
-- [GitHub](https://github.com/) - update URL
-- [LinkedIn](https://www.linkedin.com/in/) - update URL
+- [GitHub](https://github.com/Blackswan1010)
+- [LinkedIn](https://www.linkedin.com/in/anthony-nguyen-32261526a/)
 
 ### Aaron Torres
 Description
