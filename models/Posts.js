@@ -15,13 +15,6 @@ Posts.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        /*post_text: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },*/
         users_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -47,3 +40,20 @@ Posts.init(
 
 
 module.exports = Posts;
+
+
+
+
+
+
+
+
+
+
+  /*post_text: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },*/

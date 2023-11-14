@@ -86,9 +86,10 @@ Javascript
 HTML (Handlebar)
 ![lesson 1](https://github.com/mitsukaichi/critter-clicker/assets/45612744/64e56ae1-40cd-4d8a-aac0-2831734a33d9)
 
-#### 2. Title
-Add notes
+#### 2. Database Creation
+This project gave us the opportunity to create a database from scratch. Creating the schema, models, seed data, and model associations was an extremely valuable experience. It was very helpful to see how good database design is an integral part of a full stack web application. Below you can see an overview of our database design with the table associations.
 <br />
+
 ![lesson 2](public/img/lesson2.png)
 
 #### 3. Title
