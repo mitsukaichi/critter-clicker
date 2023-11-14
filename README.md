@@ -140,8 +140,8 @@ Description
 
 ### Aaron Torres
 Description
-- [GitHub](https://github.com/) - update URL
-- [LinkedIn](https://www.linkedin.com/in/) - update URL
+- [GitHub](https://github.com/aaront080) 
+- [LinkedIn](https://www.linkedin.com/in/aaron-torres-003672b1/) 
 
 ### Janet Webster
 Full Stack MERN Software Engineer in training.
