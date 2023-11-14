@@ -126,7 +126,10 @@ a:hover {
     margin-right: auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 575px) {
+    #navbarNav {
+        text-align: center;
+    }
     .card {
         width: 20rem;
     }
