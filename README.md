@@ -90,7 +90,8 @@ HTML (Handlebar)
 This project gave us the opportunity to create a database from scratch. Creating the schema, models, seed data, and model associations was an extremely valuable experience. It was very helpful to see how good database design is an integral part of a full stack web application. Below you can see an overview of our database design with the table associations.
 <br />
 
-![lesson 2](public/img/lesson2.png)
+![Database schema](https://github.com/mitsukaichi/critter-clicker/assets/143736506/2bb70d19-37c4-43d6-af45-1ba98862ea3f)
+
 
 #### 3. Title
 Add notes
