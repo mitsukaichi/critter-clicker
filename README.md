@@ -139,7 +139,7 @@ Description
 - [LinkedIn](https://www.linkedin.com/in/anthony-nguyen-32261526a/)
 
 ### Aaron Torres
-Description
+Certified Scrum Master and Software Engineer in training.
 - [GitHub](https://github.com/aaront080) 
 - [LinkedIn](https://www.linkedin.com/in/aaron-torres-003672b1/) 
 
