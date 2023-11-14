@@ -30,7 +30,6 @@
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Credits](#credits)
 * [License](#license)
 * [Authors](#authors)
 
@@ -119,9 +118,6 @@ attributes: {
 
 ![lesson 4](public/image/lesson4.png)
 ![lesson 4](public/image/lesson4b.png)
-
-#### Synopsis
-Description
 
 ## Installation
 
