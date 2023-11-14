@@ -1,7 +1,7 @@
 # CRITTER CLICKER
 
-### [View Live Project Here](https://critter-clicker-c6c973aed451.herokuapp.com/dashboard "CRITTER CLICKER")<br />
-![image of CRITTER CLICKER](https://github.com/mitsukaichi/critter-clicker/assets/45612744/83ec2964-b213-4273-8f44-4bc722c87b9e "image of CRITTER CLICKER")
+### [View Live Project Here](https://critter-clicker-c6c973aed451.herokuapp.com/ "CRITTER CLICKER")<br />
+![image of CRITTER CLICKER](/public/image/intro.gif "image of CRITTER CLICKER")
 | Technology Used    | Resource URL |
 | --------  | ------- |
 | NodeJS      | https://nodejs.org/en |
@@ -22,6 +22,7 @@
 | GitHub     | https://github.com/ |
 | VSCode    | https://code.visualstudio.com/ |
 | Cloudinary    | https://cloudinary.com/ |
+| Heroku    | https://www.heroku.com/ |
 
 
 ## Table of Contents
@@ -98,10 +99,26 @@ Our work, required a platform to retrieve and upload a picture and show it on ou
 <br />
 ![Cloudinary](https://github.com/mitsukaichi/critter-clicker/assets/144869976/4221189f-c6c3-44bb-9fbb-c9da63297053)
 
-#### 4. Title
-Add notes
+#### 4. Sequelize Literal
+A key component to our project having the ability to like and unlike posts and display the like count came down to our sequelize literal statments. This way we were able to query the database to pull a sum of the amount of likes per post and also determine if a post had already been liked. Below shows one of our code snippets and images of how it functioned inside the controller route for our dashboard.
+```
+attributes: {
+    include: [
+        [
+            sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE liked = true AND likes.posts_id = posts.id GROUP BY posts_id)`),
+            'likedCount'
+        ],
+        [
+            sequelize.literal(`(SELECT COUNT(*) FROM likes WHERE users_id = ${req.session.users_id} AND liked = true AND likes.posts_id = posts.id)`),
+            'isLiked'
+        ]
+    ]
+}
+```
 <br />
-![lesson 4](public/img/lesson4.png)
+
+![lesson 4](public/image/lesson4.png)
+![lesson 4](public/image/lesson4b.png)
 
 #### Synopsis
 Description
@@ -129,12 +146,10 @@ Copyright (c) 2023 Minami Mukai (Itsukaichi) / Anthony Nguyen / Aaron Torres / J
 
 ## Authors
 ### Minami Mukai (Itsukaichi)
-Description
 - [GitHub](https://github.com/mitsukaichi/)
 - [LinkedIn](https://www.linkedin.com/in/minami-itsukaichi/)
 
 ### Anthony Nguyen
-Description
 - [GitHub](https://github.com/Blackswan1010)
 - [LinkedIn](https://www.linkedin.com/in/anthony-nguyen-32261526a/)
 
