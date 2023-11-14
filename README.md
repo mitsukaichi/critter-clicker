@@ -75,7 +75,7 @@ Have a quality README (with unique name, description, technologies used, screens
 
 ### Lessons Learned
 
-#### 1. Difference between event.target and event.currentTarget
+#### 1. Difference between event.target and event.currentTarget - by Minami
 While I was working on Javascript function to like and unlike individual photo, grabbing the ID of the each post from the ID of the clicked element was not always successfull and post_id remained undefined. This was due to the [event bubbling](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling) - event bubbles up from the innermost element that was clicked to its parents. 
 
 To explicitly get the ID of that the event listener is attached to, switching from event.target to event.currentTarget solved this problem.
@@ -121,7 +121,7 @@ This is a full stack project to share pet pics with the community. If you would 
 ## License
 
 MIT License
-Copyright (c) 2023 Minami Mukai (Itsukaichi)
+Copyright (c) 2023 Minami Mukai (Itsukaichi) / Anthony Nguyen / Aaron Torres / Janet Webster
 
 <hr />
 
